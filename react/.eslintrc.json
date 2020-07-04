@@ -1,0 +1,34 @@
+{
+    "env": {
+        "browser": true,
+        "es2020": true,
+        "node": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "eslint:recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "react/prop-types": 0,
+        "react/jsx-filename-extension": 0, 
+        "react/react-in-jsx-scope": 0, // Disables since React is global (thanks Next.js)
+        "react/jsx-props-no-spreading": [0, { // May want this one in eventually, will fuck up the _app.js file
+            "html": "enforce",
+            "custom": "ignore",
+            "explicitSpread": "enforce",
+            "exceptions": ["Component"]
+        }]
+
+    }
+}
