@@ -1,0 +1,7 @@
+/* Code for getting shit full screen */
+html, body, body > div:first-child,
+div#__next,
+div#__next > div,
+div#__next > div > div {
+  height: 100%;
+}
