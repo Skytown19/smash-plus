@@ -19,6 +19,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import Collapse from '@material-ui/core/Collapse';
 
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
@@ -91,6 +92,7 @@ export default function PersistentDrawerLeft() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [listOpen, setListOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -140,7 +142,23 @@ export default function PersistentDrawerLeft() {
         </div>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          <ListItem button key={1} onClick={() => setListOpen(!listOpen)}>
+            <ListItemIcon>
+              <InboxIcon />
+            </ListItemIcon>
+            <ListItemText primary="Game" />
+          </ListItem>
+          <Collapse in={listOpen} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItem button>
+                <ListItemIcon>
+                  <ListItemIcon />
+                </ListItemIcon>
+                <ListItemText primary="Starred" />
+              </ListItem>
+            </List>
+          </Collapse>
+          {['Starred', 'Send email', 'Drafts'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={text} />
