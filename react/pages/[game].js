@@ -12,13 +12,15 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import HistoryIcon from '@material-ui/icons/History';
+import UpdateIcon from '@material-ui/icons/Update';
+import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import Collapse from '@material-ui/core/Collapse';
 
 import Container from '@material-ui/core/Container';
@@ -144,32 +146,36 @@ export default function PersistentDrawerLeft() {
         <List>
           <ListItem button key={1} onClick={() => setListOpen(!listOpen)}>
             <ListItemIcon>
-              <InboxIcon />
+              <VideogameAssetIcon />
             </ListItemIcon>
-            <ListItemText primary="Game" />
+            <ListItemText primary="Choose Smash Game" />
           </ListItem>
           <Collapse in={listOpen} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItem button>
-                <ListItemIcon>
-                  <ListItemIcon />
-                </ListItemIcon>
-                <ListItemText primary="Starred" />
+                <ListItemIcon />
+                <img src="projectplus_logo_small.png" alt="project+ logo" />
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon />
+                <img src="melee_logo.png" alt="melee logo" />
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon />
+                <img src="ultimate_logo.png" alt="ultimate logo" />
               </ListItem>
             </List>
           </Collapse>
-          {['Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
         </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          {['Upcoming Events', 'Past Events', 'Top Players'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>
+                { index === 0 && <UpdateIcon /> }
+                { index === 1 && <HistoryIcon />}
+                { index === 2 && <EmojiPeopleIcon />}
+              </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
