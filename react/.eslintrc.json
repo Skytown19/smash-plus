@@ -28,7 +28,7 @@
             "custom": "ignore",
             "explicitSpread": "enforce",
             "exceptions": ["Component"]
-        }]
-
+        }],
+        "react/destructuring-assignment": 0
     }
 }
