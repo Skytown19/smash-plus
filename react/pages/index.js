@@ -1,21 +1,20 @@
 import React, { useEffect } from 'react';
-// import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 
 import { Backdrop } from '@material-ui/core';
-import Drawer from '../components/drawer';
 
+// TODO: Make this either a cooler loading animation ,or find a
+//       way to quickly redirect to the [game] route/
 export default function Index() {
-  // const router = useRouter();
+  const router = useRouter();
 
-  // useEffect(() => {
-  //   // console.log('use effect');
-  //   // router.push('/home');
-  // });
+  useEffect(() => {
+    router.push('/home');
+  });
 
   return (
-    // <Backdrop open>
-    //   Loading...
-    // </Backdrop>
-    <Drawer />
+    <Backdrop open>
+      Loading...
+    </Backdrop>
   );
 }
